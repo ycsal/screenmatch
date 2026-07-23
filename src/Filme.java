@@ -3,11 +3,15 @@ public class Filme {
     int anoDeLancamento;
     boolean incluidoNoPlano;
     double avaliacao;
-    double somaDasAvaliacoes;
-    int totalDeAvaliacoes;
+    private double somaDasAvaliacoes;
+    private int totalDeAvaliacoes;
     int duracaoEmMinutos;
     int horas;
     int minutos;
+
+    int getTotalDeAvaliacoes(){
+        return totalDeAvaliacoes;
+    }
 
     void calculaDuracaoEmHoras(){
         horas = duracaoEmMinutos/60;
@@ -25,9 +29,9 @@ public class Filme {
         totalDeAvaliacoes++;
     }
 
-    void calculaMediaAvaliacoes(){ //trocar void para double
-        avaliacao = somaDasAvaliacoes/totalDeAvaliacoes; // return divisao, excluindo a avaliacao e tira o sout
-        System.out.println(String.format("Avaliação dada por usuários: %.1f", avaliacao));
+    double calculaMediaAvaliacoes(){ //trocar void para double
+        return somaDasAvaliacoes/totalDeAvaliacoes; // return divisao, excluindo a avaliacao e tira o sout
+
     }
 
 

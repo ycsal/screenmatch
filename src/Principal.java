@@ -11,7 +11,6 @@ public class Principal {
         meuFilme.avalia(8);
         meuFilme.avalia(10);
         meuFilme.avalia(7);
-        meuFilme.calculaMediaAvaliacoes();
-
+        System.out.println(String.format("Avaliação dada por %d usuários: %.1f", meuFilme.getTotalDeAvaliacoes(),  meuFilme.calculaMediaAvaliacoes()));
     }
 }
