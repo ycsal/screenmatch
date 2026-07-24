@@ -1,16 +1,40 @@
+import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
+import br.com.alura.screenmatch.modelos.Filme;
+import br.com.alura.screenmatch.modelos.Serie;
+
 public class Principal {
     static void main() {
         Filme meuFilme = new Filme(); //"Filme" da esquerda aponta onde o objeto está - direita cria espaço da memoria para o objeto
-        meuFilme.nome = "O Poderoso Chefão";
-        meuFilme.anoDeLancamento = 1970;
-        meuFilme.duracaoEmMinutos = 180;
-        meuFilme.horas = meuFilme.duracaoEmMinutos/60;
-        meuFilme.minutos = meuFilme.duracaoEmMinutos%60;
+        meuFilme.setNome("O Poderoso Chefão");
+        meuFilme.setAnoDeLancamento(1970);
+        meuFilme.setDuracaoEmMinutos(180);
+        meuFilme.setIncluidoNoPlano(true);
+
 
         meuFilme.exibeFichaTecnica();
         meuFilme.avalia(8);
         meuFilme.avalia(10);
         meuFilme.avalia(7);
-        System.out.println(String.format("Avaliação dada por %d usuários: %.1f", meuFilme.getTotalDeAvaliacoes(),  meuFilme.calculaMediaAvaliacoes()));
+        meuFilme.exibeAvaliacoes();
+
+        Serie theOC = new Serie();
+        theOC.setNome ("The O. C.");
+        theOC.setAnoDeLancamento(2003);
+        theOC.setTemporadas(4);
+        theOC.setEpisodiosPorTemporada(25);
+        theOC.setMinutosPorEpisodio(44);
+        theOC.exibeFichaTecnica();
+
+        Filme outroFilme = new Filme(); //"Filme" da esquerda aponta onde o objeto está - direita cria espaço da memoria para o objeto
+        outroFilme.setNome("Avatar");
+        outroFilme.setAnoDeLancamento(2023);
+        outroFilme.setDuracaoEmMinutos(100);
+
+        CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
+        calculadora.inclui(meuFilme);
+        calculadora.inclui(outroFilme);
+        calculadora.inclui(theOC);
+        System.out.println("\nTempo total de títulos que deseja assistir: " + calculadora.getTempoTotal() + " minutos");
+
     }
 }
