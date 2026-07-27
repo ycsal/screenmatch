@@ -4,9 +4,11 @@ import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 
+import java.util.ArrayList;
+
 public class Principal {
     static void main() {
-        Filme meuFilme = new Filme(); //"Filme" da esquerda aponta onde o objeto está - direita cria espaço da memoria para o objeto
+        Filme meuFilme = new Filme(); //"Filme" da esquerda aponta onde o objeto está (referencia) - direita cria espaço da memoria para o objeto (objeto)
         meuFilme.setNome("O Poderoso Chefão");
         meuFilme.setAnoDeLancamento(1970);
         meuFilme.setDuracaoEmMinutos(180);
@@ -28,7 +30,7 @@ public class Principal {
         theOC.exibeFichaTecnica();
 
         Filme outroFilme = new Filme(); //"Filme" da esquerda aponta onde o objeto está - direita cria espaço da memoria para o objeto
-        outroFilme.setNome("Avatar");
+        outroFilme.setNome("Avatar II");
         outroFilme.setAnoDeLancamento(2023);
         outroFilme.setDuracaoEmMinutos(100);
 
@@ -46,5 +48,22 @@ public class Principal {
         episodio.setSerie(theOC);
         episodio.setTotalVisualizacoes(300);
         filtro.filtra(episodio);
+
+        var avatar = new Filme(); //var faz inferência do tipo declarado
+        avatar.setDuracaoEmMinutos(160);
+        avatar.setNome("Avatar");
+        avatar.setAnoDeLancamento(2009);
+        avatar.avalia(10);
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(avatar);
+        listaDeFilmes.add(meuFilme);
+        listaDeFilmes.add(outroFilme);
+        System.out.println("Tamanho da lista: " + listaDeFilmes.size());
+        System.out.println("Primeiro filme: " + listaDeFilmes.get(0).getNome());
+        System.out.println(listaDeFilmes);
+        System.out.println("toString do filme: " + listaDeFilmes.get(0).toString());
+
+
     }
 }
